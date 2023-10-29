@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <title>Registro de Entrada de Veículos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="/static/scripts.js">
+    <style>
+        .mini-tela-edicao {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Entrada de Veículos</h1>
+    <form action="/adicionar_registro" method="post">
+        <div>
+            <label id="dataentrada" for="data-entrada">Data de Entrada:</label>
+            <input type="text" name="dataa" id="data-entrada" placeholder="Data de Entrada">
+        </div>
+        
+        <div>
+            <label id="placadoveiculo" for="placa-veiculo">Placa do Veículo:</label>
+            <input type="text" name="placadoveiculo" id="placa-veiculo" placeholder="Placa do Veículo">
+        </div>
+        
+        <div>
+            <label id="marca" for="marca-veiculo">Marca do Veículo:</label>
+            <input type="text" name="marca" id="marca-veiculo" placeholder="Marca do Veículo">
+        </div>
+        
+        <div>
+            <label id="modelo" for="modelo-veiculo">Modelo do Veículo:</label>
+            <input type="text" name="modelo" id="modelo-veiculo" placeholder="Modelo do Veículo">
+        </div>
+        
+        <button class="botao" type="submit">Adicionar Registro</button>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Data de Entrada</th>
+                <th>Placa do Veículo</th>
+                <th>Marca do Veículo</th>
+                <th>Modelo do Veículo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            {% for registro in registros %}
+                <tr>
+                    <td id="data-entrada-{{ registro[0] }}">{{ registro[1] }}</td>
+                    <td id="placa-veiculo-{{ registro[0] }}">{{ registro[2] }}</td>
+                    <td id="marca-veiculo-{{ registro[0] }}">{{ registro[3] }}</td>
+                    <td id="modelo-veiculo-{{ registro[0] }}">{{ registro[4] }}</td>
+                    <td>
+                        <button class="botao1" onclick="abrirMiniTelaEdicao('{{ registro[0] }}')">Editar</button>
+                        <form action="/excluir_registro/{{ registro[0] }}" method="get">
+                            <button class="botao2" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div id="message">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flash">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    
+    <div id="mini-tela-edicao" class="mini-tela-edicao">
+        <h2 class="editar-registro">Editar Registro</h2>
+        <form action="/editar_registro" method="post" onsubmit="return salvarEdicoes()">
+            <input type="hidden" id="registro-id" name="registro_id">
+            <div>
+                <label for="data-entrada-edicao">Data de Entrada:</label>
+                <input type="text" name="dataa" id="data-entrada-edicao">
+            </div>
+            <div>
+                <label for="placadoveiculo-edicao">Placa do Veículo:</label>
+                <input type="text" name="placadoveiculo" id="placadoveiculo-edicao">
+            </div>
+            <div>
+                <label for="marca-edicao">Marca do Veículo:</label>
+                <input type="text" name="marca" id="marca-edicao">
+            </div>
+            <div>
+                <label for="modelo-edicao">Modelo do Veículo:</label>
+                <input type="text" name="modelo" id="modelo-edicao">
+            </div>
+            <button class="botaosalvar" type="submit">Salvar</button>
+            <button class="botaocancelar" type="button" onclick="fecharMiniTelaEdicao()">Cancelar</button>
+        
+        </form>
+    </div>
+
+    <script>
+        function abrirMiniTelaEdicao(id) {
+            
+            var dataEntrada = document.getElementById("data-entrada-" + id).textContent;
+            var placaVeiculo = document.getElementById("placa-veiculo-" + id).textContent;
+            var marcaVeiculo = document.getElementById("marca-veiculo-" + id).textContent;
+            var modeloVeiculo = document.getElementById("modelo-veiculo-" + id).textContent;
+
+            document.getElementById("registro-id").value = id;
+            document.getElementById("data-entrada-edicao").value = dataEntrada;
+            document.getElementById("placadoveiculo-edicao").value = placaVeiculo;
+            document.getElementById("marca-edicao").value = marcaVeiculo;
+            document.getElementById("modelo-edicao").value = modeloVeiculo;
+
+            
+            document.getElementById("mini-tela-edicao").style.display = "block";
+        }
+
+        function fecharMiniTelaEdicao() {
+            
+            document.getElementById("mini-tela-edicao").style.display = "none";
+        }
+    </script>
+</body>
+</html>

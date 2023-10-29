@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1{
+    text-align: center;
+}
+
+form{
+    margin-top: 75px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #333;
+    color: #fff;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+input[type="text"] {
+    padding: 5px;
+    width: 25%;
+}
+.add-button {
+    display: block;
+    margin: 10px auto;
+    background-color: #ff0000;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.botao{
+    margin-top: 1%;
+    margin-left: 47%;
+    background-color: #ff0000;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.botao1{
+    margin-bottom: 10px;
+    background-color: #00aeff;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+.botao2{
+    background-color: #ff0000;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+
+#dataentrada{
+    margin-left: 35%;
+}
+
+#data-entrada{
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#placa-veiculo{
+    margin-left: 13px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#marca-veiculo{
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#modelo-veiculo{
+    border-radius: 5px;
+}
+
+#placadoveiculo{
+    margin-left: 35%;
+}
+
+#marca{
+    margin-left: 35%;
+}
+
+#modelo{
+    margin-left: 35%;
+}
+
+#data-entrada-edicao{
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#placadoveiculo-edicao{
+    margin-left: 13px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#marca-edicao{
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#modelo-edicao{
+    border-radius: 5px;
+}
+
+.botaosalvar{
+    background-color: #00aeff;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    border-radius: 10px;
+    margin-top: 35px;
+    margin-left: 25%;
+}
+
+.botaocancelar{
+    background-color: #ff0000;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 3%;
+}
+
+.editar-registro{
+    margin-left: 25%;
+    margin-bottom: 10%;
+}

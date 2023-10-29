@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styless.css">
+    <script src="scripts.js"></script>
+    <title>Registro de Saída de Veículos</title>
+    <link rel="stylesheet" href="/static/styless.css">
+    <style>
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 20%;
+        }
+        
+        .modal-content label,
+.modal-content input {
+    display: block;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro de Saída de Veículos</h1>
+    <form action="/adicionar_saidaa" method="post">
+        <div>
+            <label id="dataentrada" for="data-entrada">Data de Saída:</label>
+            <input type="text" name="data_saida" id="data-entrada" placeholder="Data de Saída">
+        </div>
+        
+        <div>
+            <label id="dataentrada" for="placa-veiculo">Placa do Veículo:</label>
+            <input type="text" name="placa_saida" id="placa-veiculo" placeholder="Placa do Veículo">
+        </div>
+        
+        <div>
+            <label id="dataentrada" for="marca-veiculo">Marca do Veículo:</label>
+            <input type="text" name="marca_saida" id="marca-veiculo" placeholder="Marca do Veículo">
+        </div>
+        
+        <div>
+            <label id="dataentrada" for="modelo-veiculo">Modelo do Veículo:</label>
+            <input type="text" name="modelo_saida" id="modelo-veiculo" placeholder="Modelo do Veículo">
+        </div>
+
+        <button class="add-button" type="submit">Adicionar Registro</button>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros_entrada %}
+                <tr>
+                    <td>{{ registro[1] }}</td>
+                    <td>{{ registro[2] }}</td>
+                    <td>{{ registro[3] }}</td>
+                    <td>{{ registro[4] }}</td>
+                    <td>
+                        <button class="editar-button" onclick="abrirModalEdicao('{{ registro[0] }}', '{{ registro[1] }}', '{{ registro[2] }}', '{{ registro[3] }}', '{{ registro[4] }}')">Editar</button>
+                        <form action="/excluir_registro_entrada/{{ registro[0] }}" method="post">
+                            <button class="botao2" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+    
+            {% for registro in registros_saida %}
+                <tr>
+                    <td>{{ registro[1] }}</td>
+                    <td>{{ registro[2] }}</td>
+                    <td>{{ registro[3] }}</td>
+                    <td>{{ registro[4] }}</td>
+                    <td>
+                        <button class="editar-button" onclick="abrirModalEdicao('{{ registro[0] }}', '{{ registro[1] }}', '{{ registro[2] }}', '{{ registro[3] }}', '{{ registro[4] }}')">Editar</button>
+                        <form action="/excluir_registro_saida/{{ registro[0] }}" method="post">
+                            <button class="botao2" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div id="error-message"></div>
+
+    
+    <div id="modal-edicao" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalEdicao()">&times;</span>
+            <h2 class="editar-registro" >Editar Registro</h2>
+            
+            <form action="/editar_registro_saida" method="post" onsubmit="return salvarEdicoesSaida()">
+                <input type="hidden" name="registro_id" id="registro-id-edicao">
+                <label for="data-entrada-edicao">Data de Saída:</label>
+                <input type="text" name="dataa" id="data-entrada-edicao">
+                <label for="placadoveiculo-edicao">Placa do Veículo:</label>
+                <input type="text" name="placadoveiculo" id="placadoveiculo-edicao">
+                <label for="marca-edicao">Marca do Veículo:</label>
+                <input type="text" name="marca" id="marca-edicao">
+                <label for="modelo-edicao">Modelo do Veículo:</label>
+                <input type="text" name="modelo" id="modelo-edicao">
+                <button class="botao" type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function abrirModalEdicao(id, data, placa, marca, modelo) {
+            document.getElementById('registro-id-edicao').value = id;
+            document.getElementById('data-entrada-edicao').value = data;
+            document.getElementById('placadoveiculo-edicao').value = placa;
+            document.getElementById('marca-edicao').value = marca;
+            document.getElementById('modelo-edicao').value = modelo;
+            document.getElementById('modal-edicao').style.display = 'block';
+        }
+
+        function fecharModalEdicao() {
+            document.getElementById('modal-edicao').style.display = 'none';
+        }
+
+        function salvarEdicoesSaida() {
+            
+            return true; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+/* Reset de estilos e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(33, 32, 32);
+
+}
+
+/* Estilos do cabeçalho */
+header {
+    background: rgb(172, 0, 0);
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+header h1 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    transition: 0.5s;
+}
+
+nav ul li :hover{
+    color:#000000
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.header-search {
+    background-color: #fff; 
+    border: 1px solid #f2f2f2;
+    border-radius: 5px; 
+    padding: 10px; 
+    display: flex; 
+}
+
+.header-search input[type="text"] {
+    border: none; 
+    outline: none; 
+    width: 100%; 
+    margin-right: 10px;
+}
+
+.header-search input[type="text"]::placeholder {
+    color: #999;
+}
+
+/* Estilos do herói */
+.hero {
+    margin-top: -60px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 100px;
+    color: black;
+    -webkit-text-stroke: 4px #fff;
+
+}
+.hero h2 {
+    font-size: 70px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    -webkit-text-stroke: 4px #fff;
+}
+
+.hero p {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.hero a {
+    display: inline-block;
+    background-color: #ff4500;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Estilos para o carrossel */
+#carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.item {
+    flex: 0 0 100%;
+    transition: transform 0.5s;
+    padding: 20px;
+    text-align: center;
+}
+
+#prev, #next {
+    cursor: pointer;
+    background-color: #DAA520;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+/* Estilos adicionais (personalize conforme necessário) */
+h1 {
+    text-align: center;
+    color: #DAA520;
+}
+
+.btn button {
+    background-color: #DAA520;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilos para a animação de hover no container */
+.container:hover {
+    transform: translateY(-10px);
+}
+
+
+/* Estilos do rodapé */
+footer {
+    background-color: #ff0000;
+    color: #fff;
+    text-align: center;
+    padding: 1px 0;
+}
+
+.botao {
+    margin-top: 20px;
+    font-size: 1.0em;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: rgb(172, 0, 0);
+    color: #fff;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    border: rgb(172, 0, 0);
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;}
+
+.botao:hover{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(172, 0, 0);
+}
+
+.compra{
+    width: 400px;
+}
+
+.hb20 {
+    width: 400px;
+    margin: 30px;
+    transition: transform 0.3s;
+    border-radius: 40%; /* Define um raio de 50% para criar um círculo */
+    object-fit: cover;
+    box-shadow: 4px 4px 4px 4px #2f2f2f;
+
+}
+
+.hb20:hover{
+    transform: scale(1.1);
+}
+
+.maisv{
+    display: flex;
+    align-items: center;
+    color:white
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    color:white
+}
+
+#ver-mais {
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    background-color: #b0130e;
+    color: #fff;
+    font-size: 18px;
+    width: 28%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.venda {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.venda img {
+    max-width: 50%;
+    margin-right: 10px;
+}
+
+.venda p {
+    font-size: 30px;
+    color: #fff;
+}
+
+
+.hh h1 {
+    color: #DAA520;
+    
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    color:white
+}
+
+.text {
+    padding: 20px;
+}
+
+.pop {
+    width: 400px;
+    margin: 30px;
+    transition: transform 0.3s;
+    border-radius: 40%; /* Define um raio de 50% para criar um círculo */
+    object-fit: cover;
+    box-shadow: 4px 4px 4px 4px #2f2f2f;
+    
+}
+
+.pop:hover{
+    transform: scale(1.1);
+}
+
+.pp h1 {
+    color: #DAA520;
+}
+
+#ver-mais{
+    background-color: rgb(172, 0, 0);
+    color: #fff;
+    transition: 0.5s;
+    
+}
+
+#ver-mais:hover{
+    background-color: #DAA520;
+    color: #fff;
+}
+
+.container h1{
+    color: #fff;
+}
+
+.compra{
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.compra:hover{
+    transform: scale(1.1);   
+}
+.venda{
+    justify-content: center;
+}
+
+.pague{
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.pague:hover{
+    transform: scale(1.1);
+}
+
+.logo-nav{
+    display: flex;
+    align-items: center;
+    margin-top: -25px;
+    transition: 0.5s ease;
+}
+
+
+.bot{
+    font-size: 1.0em;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    border: rgb(172, 0, 0);
+    margin-right: 100px;
+}
+
+.bot:hover{
+    background-color: #DAA520 ;
+    color: #fff;
+}
+
+.header-search{
+    margin-left: 125px;
+}

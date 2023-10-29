@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs_12">
+                <a href="/add">Adicionar</a>
+            </div>
+            <div class="col-xs-12">
+                <table class="table">
+                    <thead>
+                        <th>modelo</th>
+                        <th>tipo</th>
+                        <th>cor</th>
+                    </thead>
+                    <tbody>
+                        {% for e in veiculos %}
+                        <tr>
+                            <td>{{e.modelo}} |</td> 
+                            <td>{{e.tipo}} |</td> 
+                            <td>{{e.cor}}</td>
+                            <td>
+                                <a href="/edit/{{e.id}}">Editar</a> |
+                                <a href="/delete/{{e.id}}">Excluir</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+    </div>
+    
+</body>
+</html>

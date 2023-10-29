@@ -1,0 +1,213 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename="principal.css") }}">
+
+    <title>Concessionária JM Veículos</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Concessionária JM Veículos</h1>
+        <div class="header-search">
+            <input  type="text" placeholder="Pesquisar"/>
+        </div>
+        <button class="bot" type="submit"> Buscar </button>
+        <nav>
+            <ul>
+                <li><a href="/add/">Login</a></li>
+                <li><a href="#venda">Pagamentos</a></li>
+                <li><a href="#list">Carros</a></li>
+                <li><a href="#info">Contato</a></li>
+                <li><a href="/suporte/">Suporte</a></li>
+            </ul>
+        </nav>
+
+        
+    </header> <br><br><br><br>
+
+    <section class="hero">
+        <h2>Encontre aqui o seu automóvel </h1> </h2>
+        <p>Escolha o carro ou moto dos seus sonhos.</p>
+    </section>
+
+    <section class="featured-cars">
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+        
+                .container {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    transition: .5s ease;
+                }
+
+                .container:hover{
+                    transform: translateY(-10px)
+                }
+        
+                h1 {
+                    text-align: center;
+                    color: #DAA520	;
+                }
+        
+                .list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+        
+                .item {
+                    background-color: rgb(43, 43, 43);
+                    width: 45%;
+                    padding: 10px;
+                    border: 5px solid rgb(43, 43, 43);
+                    margin: 10px 0;
+                    text-align: center;
+                    color: white	;   
+                    border-radius: 20px;
+                }
+                
+                .item img {
+                    max-width: 100%;
+                }
+
+                .item p {
+                    color: #DAA520;
+                }
+                
+                .kk {
+                    font-size: 40px;
+                }
+            </style>
+            <div class="container">
+
+                <div class="list" id="list">
+                    {% for e in veiculos %}
+                    <div class="item">
+                        <img src="CARRO01.jpeg" alt="Carro 1">
+                        <h2>{{e.modelo}}</h2><br>
+                        <p>Preço: R$ 1,1 milhão</p><br>
+                        <h4>Cor: {{e.cor}}<br><br>
+                            Marca: {{e.marca}} <br> <br>
+                              Ano: {{e.ano}}</h4> <br>
+                        <h3>Status: {{e.estado}}</h3>
+                        <div class="btn">
+                            <button class="botao" type="submit"> ADQUIRIR VEÍCULO</button>
+                        </div> 
+                    </div> 
+                    {% endfor %}
+                
+                    <div class="item">
+                        <img src="MOTO01.jpeg" alt="Moto 1">
+                        <h2>Yamaha XJ6</h2><br>
+                        <p>Preço: R$ 43.105,00 </p><br>
+                        <h4>Cor: Branco/Azul <br><br>
+                             Marca: Yamaha <br> <br>
+                              Ano: 2023</h4> <br>
+                        <h3>Status: Novo</h3>
+                        <div class="btn">
+                            <button class="botao" type="submit"> ADQUIRIR VEÍCULO</button>
+                        </div>    
+                    </div>
+                    <div class="item">
+                        <img src="CARRO02.jpeg" alt="Carro 2">  
+                        <h2>Honda Civic</h2><br>
+                        <p>Preço: R$ R$ 244.900</p><BR>
+                        <h4>Cor: Branco/Azul <br><br>   
+                            Marca: Honda <br><br>                         
+                             Ano: 2024</h4> <br>
+                        <h3>Status: Novo</h3>
+                        <div class="btn">
+                            <button class="botao" type="submit"> ADQUIRIR VEÍCULO</button>
+                        </div>                  
+                        </div>
+                    <div class="item">
+                        <img src="MOTO02.jpg" alt="Moto 2">
+                        <h2>Honda CG 160 FAN</h2><br>
+                        <p>Preço: R$ 16.421,00</p><br>
+                        <h4>Cor: Azul/Preta/Vermelha <br> <br>
+                             Marca: Honda <br> <br>
+                              Ano: 2024</h4> <br>
+                        <h3>STATUS: NOVO</h3>
+                        <div class="btn">
+                            <button class="botao" type="submit"> ADQUIRIR VEÍCULO</button>
+                        </div>    
+                    </div>
+                    
+                </div>
+                <button id="ver-mais">Ver Mais</button>
+            </div>
+            </section>
+    </div>
+</div><br>
+
+<h1 class="kk" > - JM Veículos - </h1>
+<div class="info" id="info">
+<img class = "compra" src="{{ url_for('static',filename="d6315f37f2262496228462ef732e83b1-removebg-preview.png")}}" alt="instagram">
+<p>Olá tudo bom, gostaria de informar aos nossos clientes que a venda de carros e motos estão sendo realizadas somente pelo instagram a baixo, <br> basta clicar no nome “Adquirir veículos”, você será direcionado para esse box de informações e pode clicar no ícone ao lado para da continuidade a compra do seu veiculo ou para tirar qualquer dúvida, O grupo JM Veículos agradece pela atenção !
+</p>
+</div> <br>
+
+<h1 class="kk" > - PAGAMENTOS - </h1> <br><br><br><br><br><br>
+
+<div class="venda" id="venda">
+    <div class="pag1">
+    <img class = "pague" src="{{ url_for('static',filename="pngtree-flat-hand-holding-chip-bank-card-vector-illustration-image_2279468-removebg-preview.png")}}" alt="Imagem 1"><br>
+    <p>Cartão de Crédito</p>
+    </div>
+    <div class="pag2">
+    <img class = "pague" src="{{url_for('static', filename="logo-pix-icone-256.png")}}" alt="Imagem 2"><br>
+    <p>Pix</p>
+    </div>
+    <div class="pag3">
+    <img class = "pague" src="{{url_for('static', filename="dinheiro.png.png")}}" alt="Imagem 2">
+    <p>Á vista</p>
+    </div>
+</div><BR><br><br><br><br><br><br>
+
+
+<h1 class="kk" > - O MAIS VENDIDO - </h1>
+<H1>HB20 Nova Geração</H1>
+<div class="maisv">
+<img class = "hb20" src="{{url_for('static', filename="HB20.jpg")}}" alt="instagram">
+<p>O Design ousado do HB20 Nova Geração possui detalhes modernos como a nova grade frontal, o farol com projetor Light Guide de LED e a exclusividade da categoria com o Sistema de Alerta e Frenagem Autônomo.<br><br><br>
+Opção com bloco e cabeçote de alumínio, 3 cilindros, 12 válvulas e 80 cv de potência, ele oferece performance de um motor maior com consumo de um motor menor. O sistema de partida a frio E-start dispensa reservatório de gasolina, melhorando a performance e reduzindo emissões de poluentes.    
+</p>
+
+<div class="hh">
+<H1>Preço Estimado: R$ 76.690</H1>
+<div class="btn">
+    <button class="botao" type="submit"> ADQUIRIR VEÍCULO</button>
+</div>  
+</div>
+</div>
+
+<h1 class="kk" > - A MAIS VENDIDA - </h1>
+<H1>Pop 110i</H1>
+<div class="flex-container">
+<img class = "pop" src="{{url_for('static', filename="pop.jpeg")}}" alt="instagram">
+<div class="text">
+<p>A Pop tem um tanque resistente com capacidade de 4,2 litros para você ir mais longe.<br><br><br>
+    Em termos de desempenho, a Honda Pop 110i é uma moto ágil e manobrável, ideal para o tráfego urbano. Ela tem uma velocidade máxima de aproximadamente 90 km/h, o que a torna uma boa escolha para deslocamentos diários. Além disso, a moto é equipada com freios a disco dianteiros e traseiros, o que garante uma parada segura em qualquer situação.    
+</p>
+</div>
+<div class="pp">
+<H1>Preço Estimado: R$ R$ 9.370</H1>
+<div class="btn">
+    <button class="botao" type="submit"> ADQUIRIR VEÍCULO</button>
+</div>  
+</div>
+</div>
+
+
+    <footer>
+        <p>&copy; 2023 Concessionária JM Veículos</p>
+    </footer>
+
+    <script src="cons.js"></script>
+</body>
+</html>
